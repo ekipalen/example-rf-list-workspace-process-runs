@@ -25,10 +25,12 @@ Collect Workspace Process Runs
 *** Keywords ***
 Get process runs
     [Arguments]    ${URL}
+    Set Log Level    NONE
     &{headers}=    Create Dictionary    Authorization    RC-WSKEY ${secrets}[api_key]
     ${result}=    RPA.HTTP.GET
     ...    url=${URL}
     ...    headers=${headers}
+    Set Log Level    INFO
     ${result_json}=    Evaluate    $result.json()
     ${table}=    Process Json Data    ${result_json}
     Append Rows To Worksheet    ${table}    header=True
