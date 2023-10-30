@@ -15,7 +15,7 @@ ${WORKBOOK_NAME}    output${/}runs.xlsx
 *** Tasks ***
 Collect Workspace Process Runs
     ${URL}=    Set Variable
-    ...    https://cloud.robocorp.com/api/v1/workspaces/${secrets}[workspace_id]/process-runs?limit=500
+    ...    https://cloud.robocorp.com/api/v1/workspaces/${secrets}[workspace_id]/process-runs?
     WHILE    $URL != $None
         ${URL}=    Get process runs    ${URL}
     END
